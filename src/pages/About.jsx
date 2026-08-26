@@ -1,5 +1,14 @@
-import React, { useState } from 'react';
-import { Terminal } from 'lucide-react';
+import { useState } from 'react';
+import { Terminal, GraduationCap, BriefcaseBusiness, Award } from 'lucide-react';
+
+const certifications = [
+  { title: 'Introduction to Generative AI', issuer: 'Google Cloud Skills Boost', issued: 'Aug 2026', credential: '26215109', logo: '/google_cloud_skill_badge.jpg' },
+  { title: 'The Ultimate Job Ready Data Science Course', issuer: 'CodeWithHarry', issued: 'Oct 2025', credential: 'CWH-THE-ULTIMATE-JOB-READY-DATA-SCIENCE-COURSE-AVS4U4J2', logo: '/codewithharry_certificate.png', link: 'https://drive.google.com/file/d/1Ijn91X2KW3xU13h_5mFpUjBwe7z0gv_r/view?usp=sharing' },
+  { title: 'Augment your LLM using RAG', issuer: 'NVIDIA', issued: 'May 2026', logo: '/nvidia_logo.jpg' },
+  { title: 'J.P. Morgan - Software Engineering Job Simulation', issuer: 'J.P. Morgan', issued: 'Jul 2025', credential: 'tMPdfk94E4z7zPA5d', logo: '/jpmorgan_logo.jpg', skills: 'Java' },
+  { title: 'BCG - GenAI Job Simulation', issuer: 'Boston Consulting Group (BCG)', issued: 'Jun 2025', credential: 'fvMs3sHXhewbvjKP3', logo: '/boston_consulting_group_logo.jpg' },
+  { title: 'Deloitte Australia - Data Analytics Job Simulation', issuer: 'Deloitte', issued: 'May 2025', credential: 'Hfuxhod3EWoDqG5dw', logo: '/deloitte_logo.jpg', skills: 'Python · SQL · Pandas · NumPy · EDA · Statistical Analysis · Data Cleaning · ETL' }
+];
 
 export default function About({ onOpenResume }) {
   const [selectedQuarter, setSelectedQuarter] = useState('NOW');
@@ -58,10 +67,55 @@ export default function About({ onOpenResume }) {
         </div>
       </div>
 
+      <div className="mb-10 grid gap-8 md:grid-cols-2">
+        <section>
+          <h2 className="font-bold uppercase text-primary mb-2 text-sm tracking-wider flex items-center gap-2"><GraduationCap className="w-4 h-4 text-emerald-accent" /> 4. EDUCATION</h2>
+          <div className="pl-6 border-l-2 border-on-background text-secondary space-y-4">
+            <p><strong className="text-primary">Lucknow Public School, Lucknow</strong><br />Class 10th, 2020 · Class 12th, 2022</p>
+            <p><strong className="text-primary">SRMCEM</strong><br />Shri Ramswaroop Memorial College of Engineering and Management, affiliated to Dr. APJ Abdul Kalam Technical University, Lucknow.</p>
+          </div>
+        </section>
+        <section>
+          <h2 className="font-bold uppercase text-primary mb-2 text-sm tracking-wider flex items-center gap-2"><BriefcaseBusiness className="w-4 h-4 text-emerald-accent" /> 5. FREELANCE WORK</h2>
+          <div className="pl-6 border-l-2 border-on-background text-secondary">
+            During college, I worked as a freelance website and software developer, building practical digital products and helping clients turn ideas into reliable web experiences.
+          </div>
+        </section>
+      </div>
+
+      <section className="mb-10">
+        <h2 className="font-bold uppercase text-primary mb-4 text-sm tracking-wider flex items-center gap-2"><Award className="w-4 h-4 text-emerald-accent" /> 6. CERTIFICATIONS</h2>
+        <div className="pl-6 border-l-2 border-on-background grid gap-3">
+          {certifications.map((certification) => (
+            <article
+              key={certification.title}
+              role={certification.link ? 'link' : undefined}
+              tabIndex={certification.link ? 0 : undefined}
+              onClick={() => certification.link && window.open(certification.link, '_blank', 'noopener,noreferrer')}
+              onKeyDown={(event) => {
+                if (certification.link && (event.key === 'Enter' || event.key === ' ')) {
+                  event.preventDefault();
+                  window.open(certification.link, '_blank', 'noopener,noreferrer');
+                }
+              }}
+              className={`border border-on-background bg-surface p-3 flex gap-3 items-start ${certification.link ? 'cursor-pointer hover:bg-surface-container focus:outline-2 focus:outline-emerald-accent' : ''}`}
+            >
+              <img src={certification.logo} alt={`${certification.issuer} logo`} className="w-10 h-10 object-contain border border-on-background bg-white p-1 shrink-0" />
+              <div className="min-w-0 grow">
+                <h3 className="font-bold text-primary">{certification.title}</h3>
+                <p className="text-secondary text-xs mt-1">{certification.issuer} · Issued {certification.issued}</p>
+                {certification.credential && <p className="text-secondary text-xs mt-1">Credential ID: {certification.credential}</p>}
+                {certification.skills && <p className="text-secondary text-xs mt-1">Skills: {certification.skills}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* SKILLS */}
       <div className="mb-10">
         <h2 className="font-bold uppercase text-primary mb-2 text-sm tracking-wider">
-          4. AI & ML TECHNICAL PROFICIENCY
+          7. AI & ML TECHNICAL PROFICIENCY
         </h2>
         <div className="pl-6 border-l-2 border-on-background space-y-3 text-secondary">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-on-background/20 pb-2 gap-1">
