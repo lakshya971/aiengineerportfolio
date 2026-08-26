@@ -124,6 +124,28 @@ class NCFRecommender(nn.Module):
         self.user_embed = nn.Embedding(num_users, latent_dim)
         self.item_embed = nn.Embedding(num_items, latent_dim)
         self.fc = nn.Sequential(nn.Linear(latent_dim * 2, 64), nn.ReLU(), nn.Linear(64, 1))`
+    },
+    {
+      id: 'customer-shopping-behavior',
+      title: 'Customer Shopping Behavior Analysis',
+      category: 'Data Analytics',
+      status: '[x] Analysis Complete',
+      tag: '[Data Analytics]',
+      description: 'Full-stack customer shopping analysis across 3,900 transactions using Python, PostgreSQL, and Power BI to uncover customer, product, and revenue insights.',
+      longDescription: 'Analyzed 3,900 transactions and 18 features to understand purchasing patterns, subscription behavior, discount impact, customer segments, and age-group revenue. Cleaned and feature-engineered the dataset in pandas, loaded it into PostgreSQL for business analysis, and presented the results in an interactive Power BI dashboard.',
+      tags: ['Python', 'Pandas', 'PostgreSQL', 'Power BI', 'Jupyter', 'EDA'],
+      githubUrl: 'https://github.com/lakshya971/customer_behavior_analysis',
+      image: '/Screenshot 2026-05-25 122236.png',
+      features: [
+        'Cleaned missing review ratings with category-level median imputation and standardized columns to snake_case',
+        'Answered 10 business questions covering revenue, discounts, shipping, subscriptions, products, and customer segments',
+        'Found non-subscribers generated more total revenue while subscription spend remained broadly similar',
+        'Recommended subscription perks, loyalty rewards, margin-aware promotions, and targeted marketing by age group'
+      ],
+      codeSnippet: `SELECT age_group, SUM(purchase_amount) AS total_revenue
+FROM customer_shopping_behavior
+GROUP BY age_group
+ORDER BY total_revenue DESC;`
     }
   ];
 
@@ -148,7 +170,7 @@ class NCFRecommender(nn.Module):
         <span className="text-xs uppercase font-bold text-primary mr-2 flex items-center gap-1">
           <Filter className="w-3.5 h-3.5" /> Filter Category:
         </span>
-        {['All', 'RAG & Vector Search', 'GenAI & LLMs', 'AI/ML Analytics', 'AI Recommender'].map((tag) => {
+        {['All', 'RAG & Vector Search', 'GenAI & LLMs', 'AI/ML Analytics', 'AI Recommender', 'Data Analytics'].map((tag) => {
           const isActive = activeFilter === tag;
           return (
             <button
@@ -313,6 +335,12 @@ class NCFRecommender(nn.Module):
                   </div>
                 </div>
               )}
+
+              {project.image && (
+                <div className="mt-4 bg-surface-container border border-on-background h-48 overflow-hidden">
+                  <img src={project.image} alt={`${project.title} dashboard`} className="w-full h-full object-cover object-top" />
+                </div>
+              )}
             </div>
 
             {/* Actions */}
@@ -334,15 +362,17 @@ class NCFRecommender(nn.Module):
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>[ GitHub ]</span>
                 </a>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-mono text-xs font-bold border border-on-background px-3 py-1.5 bg-emerald-accent text-black hover:bg-emerald-400 transition-colors flex items-center gap-1 shadow-[2px_2px_0px_0px_var(--color-on-background)] hover:shadow-none"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>[ Launch App ]</span>
-                </a>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-mono text-xs font-bold border border-on-background px-3 py-1.5 bg-emerald-accent text-black hover:bg-emerald-400 transition-colors flex items-center gap-1 shadow-[2px_2px_0px_0px_var(--color-on-background)] hover:shadow-none"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    <span>[ Launch App ]</span>
+                  </a>
+                )}
                 <button 
                   onClick={() => onSelectProject(project)}
                   className="font-mono text-xs font-bold border border-on-background px-3 py-1.5 bg-surface hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-1"

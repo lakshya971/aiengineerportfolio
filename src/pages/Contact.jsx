@@ -71,7 +71,8 @@ export default function Contact() {
           message: formData.message,
           _subject: `Portfolio contact: ${formData.subject}`,
           _template: 'table',
-          _captcha: 'false'
+          _captcha: 'false',
+          _url: window.location.origin
         })
       });
 
