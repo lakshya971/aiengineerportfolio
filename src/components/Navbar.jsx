@@ -27,7 +27,7 @@ export default function Navbar({ activePage, setActivePage, theme, setTheme, sou
           className="font-headline-md text-lg md:text-2xl font-bold tracking-tight text-primary hover:text-secondary transition-colors duration-150 flex items-center gap-2"
         >
           <Terminal className="w-5 h-5 text-emerald-accent animate-pulse shrink-0" />
-          <span className="hidden sm:inline">SYSTEM_EXECUTABLE</span>
+          <span className="hidden sm:inline">LAKSHYA ASTHANA</span>
           <span className="sm:hidden">SYS_EXEC</span>
         </button>
 

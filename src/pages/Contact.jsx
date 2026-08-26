@@ -14,9 +14,9 @@ const LinkedinIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
-const TwitterIcon = ({ className = "w-4 h-4" }) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+const VercelIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 3 22 20H2L12 3Z" />
   </svg>
 );
 
@@ -38,7 +38,7 @@ export default function Contact() {
     if (errorMsg) setErrorMsg('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name.trim()) {
@@ -57,18 +57,35 @@ export default function Contact() {
     setIsSubmitting(true);
     setProgress(10);
 
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsSubmitting(false);
-          setSubmitted(true);
-          confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
-          return 100;
-        }
-        return prev + 25;
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/asthanalakshya2005@gmail.com', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `Portfolio contact: ${formData.subject}`,
+          _template: 'table',
+          _captcha: 'false'
+        })
       });
-    }, 200);
+
+      if (!response.ok) throw new Error('Email service rejected the request.');
+
+      setProgress(100);
+      setIsSubmitting(false);
+      setSubmitted(true);
+      confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+    } catch (error) {
+      setIsSubmitting(false);
+      setProgress(0);
+      setErrorMsg('ERR_DELIVERY_FAILED: Message could not be transmitted. Please email directly.');
+    }
   };
 
   const resetForm = () => {
@@ -105,10 +122,10 @@ export default function Contact() {
             <div className="pt-2">
               <span className="block text-primary font-bold mb-1">Direct protocol:</span>
               <a 
-                href="mailto:hello@design_os.com" 
+                href="mailto:asthanalakshya2005@gmail.com" 
                 className="text-primary font-bold border-b border-primary hover:bg-primary hover:text-on-primary transition-colors text-sm"
               >
-                hello@design_os.com
+                asthanalakshya2005@gmail.com
               </a>
             </div>
 
@@ -116,21 +133,21 @@ export default function Contact() {
               <p className="font-bold text-primary mb-3 uppercase tracking-wider text-xs">Supported Channels:</p>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
+                  <a href="https://github.com/lakshya971" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
                     <GithubIcon className="w-4 h-4 text-emerald-accent" />
                     <span>[+] GitHub_Repo</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
+                  <a href="https://www.linkedin.com/in/lakshya-asthana/" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
                     <LinkedinIcon className="w-4 h-4 text-emerald-accent" />
                     <span>[+] LinkedIn_Network</span>
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
-                    <TwitterIcon className="w-4 h-4 text-emerald-accent" />
-                    <span>[+] Twitter_Feed</span>
+                  <a href="https://vercel.com/lakshya-asthanas-projects" target="_blank" rel="noreferrer" className="hover:text-primary hover:underline flex items-center gap-2">
+                    <VercelIcon className="w-4 h-4 text-emerald-accent" />
+                    <span>[+] Vercel</span>
                   </a>
                 </li>
               </ul>
@@ -151,7 +168,7 @@ export default function Contact() {
               <CheckCircle2 className="w-12 h-12 text-emerald-accent mx-auto animate-bounce" />
               <h3 className="font-bold text-lg">[ PAYLOAD DISPATCHED SUCCESSFULLY ]</h3>
               <p className="text-xs text-on-primary-container leading-relaxed">
-                Your message packet has been transmitted to hello@design_os.com. Response latency is typically under 24 hours.
+                Your message packet has been transmitted to asthanalakshya2005@gmail.com. Response latency is typically under 24 hours.
               </p>
               <button
                 onClick={resetForm}

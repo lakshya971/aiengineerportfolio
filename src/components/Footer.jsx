@@ -8,7 +8,7 @@ export default function Footer({ setActivePage, onOpenPalette }) {
         <div className="md:col-span-5 pb-4 border-b border-on-background flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="flex items-center gap-2 font-bold text-primary text-sm">
             <Terminal className="w-4 h-4 text-emerald-accent" />
-            <span>SYSTEM_EXECUTABLE_V1.0</span>
+            <span>LAKSHYA ASTHANA</span>
             <span className="bg-primary-container text-on-primary-container px-2 py-0.5 text-[10px] uppercase border border-on-background">
               Build #2026.08.26
             </span>
@@ -39,8 +39,8 @@ export default function Footer({ setActivePage, onOpenPalette }) {
 
         <div className="flex flex-col gap-2">
           <span className="font-bold text-primary uppercase tracking-widest text-[10px]">Specifications</span>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-secondary hover:text-primary hover:underline flex items-center gap-1">
-            <FileCode2 className="w-3 h-3" /> GitHub Repository
+          <a href="https://github.com/lakshya971" target="_blank" rel="noreferrer" className="text-secondary hover:text-primary hover:underline flex items-center gap-1">
+            <FileCode2 className="w-3 h-3" /> GitHub
           </a>
           <a href="#" onClick={(e) => { e.preventDefault(); setActivePage('about'); }} className="text-secondary hover:text-primary hover:underline flex items-center gap-1">
             <Shield className="w-3 h-3" /> Architecture Docs
