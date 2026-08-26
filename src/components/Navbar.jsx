@@ -24,10 +24,11 @@ export default function Navbar({ activePage, setActivePage, theme, setTheme, sou
         {/* Brand Logo */}
         <button 
           onClick={() => setActivePage('home')}
-          className="font-headline-md text-xl md:text-2xl font-bold tracking-tight text-primary hover:text-secondary transition-colors duration-150 flex items-center gap-2"
+          className="font-headline-md text-lg md:text-2xl font-bold tracking-tight text-primary hover:text-secondary transition-colors duration-150 flex items-center gap-2"
         >
-          <Terminal className="w-5 h-5 text-emerald-accent animate-pulse" />
-          <span>SYSTEM_EXECUTABLE</span>
+          <Terminal className="w-5 h-5 text-emerald-accent animate-pulse shrink-0" />
+          <span className="hidden sm:inline">SYSTEM_EXECUTABLE</span>
+          <span className="sm:hidden">SYS_EXEC</span>
         </button>
 
         {/* Desktop Navigation Links */}
@@ -99,7 +100,9 @@ export default function Navbar({ activePage, setActivePage, theme, setTheme, sou
             onClick={cycleTheme}
             className="p-2 border border-on-background rounded-none text-primary"
           >
-            {theme === 'light' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {theme === 'light' && <Sun className="w-4 h-4 text-amber-500" />}
+            {theme === 'dark' && <Moon className="w-4 h-4 text-indigo-400" />}
+            {(theme === 'amber' || theme === 'matrix') && <Monitor className="w-4 h-4 text-emerald-accent" />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

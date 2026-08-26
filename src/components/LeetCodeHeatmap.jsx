@@ -228,7 +228,7 @@ export default function LeetCodeHeatmap() {
           </div>
 
           {/* Activity Badges & Streak */}
-          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div className="border border-on-background p-4 bg-surface-container flex flex-col justify-between">
               <div className="flex items-center gap-2 text-emerald-accent">
                 <Flame className="w-5 h-5 text-emerald-accent" />

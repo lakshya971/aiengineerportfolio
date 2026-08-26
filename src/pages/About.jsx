@@ -64,21 +64,21 @@ export default function About({ onOpenResume }) {
           4. AI & ML TECHNICAL PROFICIENCY
         </h2>
         <div className="pl-6 border-l-2 border-on-background space-y-3 text-secondary">
-          <div className="flex items-center justify-between border-b border-on-background/20 pb-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-on-background/20 pb-2 gap-1">
             <span className="text-primary font-bold">[x] Generative AI & LLMs</span>
-            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background">Prompt Tuning & Context Windowing</span>
+            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background self-start sm:self-auto">Prompt Tuning & Context Windowing</span>
           </div>
-          <div className="flex items-center justify-between border-b border-on-background/20 pb-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-on-background/20 pb-2 gap-1">
             <span className="text-primary font-bold">[x] PyTorch & Recommender Systems</span>
-            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background">NCF & BERT Matrix Factorization</span>
+            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background self-start sm:self-auto">NCF & BERT Matrix Factorization</span>
           </div>
-          <div className="flex items-center justify-between border-b border-on-background/20 pb-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-on-background/20 pb-2 gap-1">
             <span className="text-primary font-bold">[x] NLP & Sentiment Analytics</span>
-            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background">TextBlob & Review Scraping</span>
+            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background self-start sm:self-auto">TextBlob & Review Scraping</span>
           </div>
-          <div className="flex items-center justify-between border-b border-on-background/20 pb-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-on-background/20 pb-2 gap-1">
             <span className="text-primary font-bold">[x] Streamlit & Web App Deployment</span>
-            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background">Python Microservices</span>
+            <span className="text-xs bg-surface-container px-2 py-0.5 border border-on-background self-start sm:self-auto">Python Microservices</span>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function About({ onOpenResume }) {
           Metrics_Analysis // AI Model Velocity Over Time
         </div>
 
-        <div className="flex justify-between items-center mb-4 mt-2">
+        <div className="flex justify-between items-center mb-4 mt-2 flex-wrap gap-2">
           <span className="text-xs text-secondary font-bold">CLICK QUARTER TO INSPECT MILESTONES:</span>
           <span className="text-xs text-emerald-accent font-bold font-mono">SELECTED: [{selectedQuarter}]</span>
         </div>

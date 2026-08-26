@@ -283,19 +283,19 @@ class NCFRecommender(nn.Module):
                   <div className="flex items-center justify-between border-b border-slate-700 pb-2">
                     <span className="font-bold text-pink-400 flex items-center gap-1.5">
                       <Film className="w-4 h-4 text-pink-400" />
-                      <span>VIBEREC - Next-Gen AI Recommender</span>
+                      <span>VIBEREC - AI Recommender</span>
                     </span>
                     <span className="text-[10px] bg-pink-500/20 text-pink-300 border border-pink-500/40 px-2 py-0.5 font-bold">
-                      PyTorch NCF & BERT
+                      PyTorch NCF
                     </span>
                   </div>
-                  <div className="grid grid-cols-4 gap-2 my-2 text-[10px]">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 my-2 text-[10px]">
                     <div className="border border-slate-700 bg-amber-500/10 p-2 text-center border-l-2 border-amber-400">
                       <div className="font-bold text-amber-300">Motor City</div>
                       <div className="text-[9px] text-slate-400">★ 7.2 | NCF</div>
                     </div>
                     <div className="border border-slate-700 bg-blue-500/10 p-2 text-center border-l-2 border-blue-400">
-                      <div className="font-bold text-blue-300">Batman: Knightfall</div>
+                      <div className="font-bold text-blue-300">Batman</div>
                       <div className="text-[9px] text-slate-400">★ 8.1 | BERT</div>
                     </div>
                     <div className="border border-slate-700 bg-rose-500/10 p-2 text-center border-l-2 border-rose-400">
@@ -308,7 +308,7 @@ class NCFRecommender(nn.Module):
                     </div>
                   </div>
                   <div className="bg-slate-800/80 p-1.5 border border-slate-700 text-[10px] text-pink-300 flex justify-between">
-                    <span>Navigation: AI Chatbot Assistant • Mood Finder • Evaluation</span>
+                    <span>AI Chatbot • Mood Finder • Evaluation</span>
                     <span className="font-bold">[RENDER READY]</span>
                   </div>
                 </div>
@@ -316,7 +316,7 @@ class NCFRecommender(nn.Module):
             </div>
 
             {/* Actions */}
-            <div className="mt-6 pt-4 hairline-t flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-6 pt-4 hairline-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div className="flex flex-wrap gap-1">
                 {project.tags.map((t, idx) => (
                   <span key={idx} className="text-[10px] text-secondary font-mono border border-on-background/30 px-1.5 py-0.5">
@@ -324,7 +324,7 @@ class NCFRecommender(nn.Module):
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <a
                   href={project.githubUrl}
                   target="_blank"

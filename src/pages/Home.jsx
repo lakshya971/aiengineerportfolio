@@ -161,19 +161,19 @@ _| |_|_|_| |_ `}
 
       {/* Featured Work Section */}
       <section className="w-full flex flex-col gap-4 relative">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-4 flex-grow">
-            <h2 className="font-bold text-xl md:text-2xl text-primary flex items-center gap-2">
-              <Layers className="w-5 h-5 text-emerald-accent" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-3">
+          <div className="flex items-center gap-3 flex-grow min-w-0">
+            <h2 className="font-bold text-lg md:text-2xl text-primary flex items-center gap-2 whitespace-nowrap">
+              <Layers className="w-5 h-5 text-emerald-accent shrink-0" />
               <span>[+] Featured AI & ML Systems</span>
             </h2>
-            <div className="h-px bg-on-background flex-grow"></div>
+            <div className="h-px bg-on-background flex-grow hidden sm:block"></div>
           </div>
           <button 
             onClick={() => setActivePage('work')}
-            className="text-xs font-bold text-primary hover:underline px-3 py-1 border border-on-background bg-surface hover:bg-primary hover:text-on-primary ml-4 transition-colors"
+            className="text-xs font-bold text-primary hover:underline px-3 py-1 border border-on-background bg-surface hover:bg-primary hover:text-on-primary transition-colors self-start sm:self-auto shrink-0"
           >
-            [ View All 4 AI Systems ] -&gt;
+            [ View All 4 ] -&gt;
           </button>
         </div>
 
@@ -184,7 +184,7 @@ _| |_|_|_| |_ `}
               className="grid grid-cols-1 md:grid-cols-12 gap-0 hover:bg-surface-container transition-colors duration-200 group bg-surface"
             >
               {/* Project Custom UI Preview */}
-              <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-on-background p-4 flex flex-col justify-between bg-surface-container-lowest relative overflow-hidden h-64 md:h-auto">
+              <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-on-background p-4 flex flex-col justify-between bg-surface-container-lowest relative overflow-hidden h-52 md:h-auto">
                 {project.type === 'rag_career' ? (
                   <div className="w-full h-full bg-[#faf9f5] text-[#141413] border border-on-background p-4 flex flex-col justify-between scanlines text-xs font-serif">
                     <div className="flex items-center justify-between border-b border-[#e5e2d9] pb-2 font-mono">
@@ -263,11 +263,11 @@ _| |_|_|_| |_ `}
               </div>
 
               {/* Project Details */}
-              <div className="md:col-span-7 p-6 md:p-8 flex flex-col justify-between">
+              <div className="md:col-span-7 p-4 md:p-8 flex flex-col justify-between">
                 <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-primary">{project.title}</h3>
-                    <span className="font-mono text-xs text-primary bg-secondary-container px-2.5 py-1 rounded-none border border-on-background font-semibold">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-primary">{project.title}</h3>
+                    <span className="font-mono text-xs text-primary bg-secondary-container px-2.5 py-1 rounded-none border border-on-background font-semibold self-start">
                       {project.tag}
                     </span>
                   </div>

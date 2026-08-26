@@ -184,3 +184,19 @@ body {
   );
   background-size: 100% 4px;
 }
+
+/* Hide scrollbar but allow scrolling (for mobile horizontal scroll) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 640px) {
+  :root {
+    --spacing-margin-edge: 16px;
+  }
+}

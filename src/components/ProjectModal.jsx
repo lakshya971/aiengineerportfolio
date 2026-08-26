@@ -28,7 +28,7 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         {/* Content Body */}
-        <div className="p-6 max-h-[75vh] overflow-y-auto space-y-6">
+        <div className="p-4 md:p-6 max-h-[70vh] md:max-h-[75vh] overflow-y-auto space-y-6">
           {/* Main banner/image */}
           <div className="border border-on-background relative h-56 bg-surface overflow-hidden group">
             {project.image ? (
@@ -99,11 +99,11 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 border-t border-on-background bg-surface-container flex flex-wrap items-center justify-between gap-3">
+        <div className="p-4 border-t border-on-background bg-surface-container flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="text-xs text-secondary font-bold">
             ID: {project.id}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={onClose}
               className="px-3 py-2 border border-on-background bg-surface hover:bg-surface-variant text-primary text-xs font-bold"

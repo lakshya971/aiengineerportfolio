@@ -96,8 +96,8 @@ END OF FILE // RESUME_V2026.1.TXT
         </div>
 
         {/* Action Controls */}
-        <div className="p-4 border-t border-on-background bg-surface-container flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
+        <div className="p-4 border-t border-on-background bg-surface-container flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handleCopy}
               className="px-3 py-1.5 border border-on-background bg-surface hover:bg-primary hover:text-on-primary transition-colors text-xs font-bold flex items-center gap-1.5"

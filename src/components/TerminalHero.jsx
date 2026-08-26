@@ -129,15 +129,19 @@ export default function TerminalHero({ setActivePage, setTheme, onOpenResume }) 
 
         {/* Terminal Body */}
         <div 
-          className="p-4 md:p-8 flex flex-col gap-4 bg-[#090d16] text-slate-100 min-h-[380px] max-h-[500px] overflow-y-auto font-mono text-sm scanlines border-b border-on-background"
+          className="p-3 md:p-8 flex flex-col gap-4 bg-[#090d16] text-slate-100 min-h-[260px] md:min-h-[380px] max-h-[420px] md:max-h-[500px] overflow-y-auto font-mono text-sm scanlines border-b border-on-background"
           onClick={() => inputRef.current?.focus()}
         >
           {/* ASCII Banner */}
-          <div className="font-display-ascii text-[11px] sm:text-xs md:text-sm text-emerald-400 whitespace-pre overflow-x-auto select-none leading-tight font-bold drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]">
+          <div className="font-display-ascii text-[7px] xs:text-[9px] sm:text-[11px] md:text-sm text-emerald-400 whitespace-pre overflow-x-auto select-none leading-tight font-bold drop-shadow-[0_0_8px_rgba(52,211,153,0.3)] hidden sm:block">
 {`  _____  __  __  ____  ___  __  __  ____  __    ____ 
  (  _  )(  )(  )(  _ \\/ __)(  \\/  )(  _ \\(  )  (  _ \\
   )(_)(  )(__)(  )___/\\__ \\ )    (  )___/ )(__  )___/
  (____/ (______)(__)  (___/(_/\\/\\_)(__)  (____)(__)  `}
+          </div>
+          <div className="sm:hidden font-display-ascii text-[10px] text-emerald-400 whitespace-pre select-none leading-tight font-bold drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]">
+{`AI ENGINEER
+FWD DEPLOYED`}
           </div>
 
           {/* History log */}
@@ -179,7 +183,7 @@ export default function TerminalHero({ setActivePage, setTheme, onOpenResume }) 
         </div>
 
         {/* Suggestion Pills Footer */}
-        <div className="p-3 bg-surface-container-high border-t border-on-background flex flex-wrap gap-2 text-xs font-mono text-primary items-center">
+        <div className="p-3 bg-surface-container-high border-t border-on-background flex gap-2 text-xs font-mono text-primary items-center overflow-x-auto scrollbar-hide whitespace-nowrap">
           <span className="font-bold text-primary mr-1 text-[11px] uppercase">[Quick Commands]:</span>
           <button 
             onClick={() => executePill('help')}
